@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -9,11 +9,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "de.dertyp7214.rboardcomponents"
         minSdk = 23
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +25,7 @@ android {
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_15
-        targetCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_15
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_15.toString()
