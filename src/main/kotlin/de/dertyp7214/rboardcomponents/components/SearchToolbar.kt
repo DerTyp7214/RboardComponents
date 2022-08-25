@@ -31,6 +31,8 @@ class SearchToolbar(
 
     val searchBar: SearchBar
 
+    private val surfaceColor = context.getAttr(com.google.android.material.R.attr.colorSurface)
+
     private val toolbar: MaterialToolbar
 
     private val toolbarColor: Int
@@ -56,7 +58,8 @@ class SearchToolbar(
             intArrayOf(androidx.appcompat.R.attr.menu, android.R.attr.background, R.attr.searchOpen)
         )
         typedArray.getResourceId(0, -1).let { if (it != -1) toolbar.inflateMenu(it) }
-        toolbarColor = typedArray.getColor(1, context.getAttr(com.google.android.material.R.attr.colorSurface))
+        toolbarColor =
+            typedArray.getColor(1, surfaceColor)
         searchOpen = typedArray.getBoolean(2, false)
         typedArray.recycle()
 
@@ -87,8 +90,10 @@ class SearchToolbar(
 
     private fun openSearch(open: Boolean, animated: Boolean = true) {
         val searchBarColor = ColorUtilsC.overlayColors(
-            context.resources.getColor(R.color.color_primary_0_10_overlay),
-            context.getAttr(com.google.android.material.R.attr.colorSurface)
+            ColorUtilsC.setAlphaComponent(
+                context.getAttr(com.google.android.material.R.attr.colorPrimary),
+                25
+            ), surfaceColor
         )
 
         val duration: Long = if (animated) animationDuration.toLong() else 0
