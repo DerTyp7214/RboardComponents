@@ -3,6 +3,9 @@ package de.dertyp7214.rboardcomponents.components
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -14,6 +17,13 @@ import de.dertyp7214.rboardcomponents.core.dpToPxRounded
 import de.dertyp7214.rboardcomponents.core.getAttr
 
 class CheckCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    constructor(context: Context, attrs: AttributeSet? = null, block: CheckCard.() -> Unit) : this(
+        context,
+        attrs
+    ) {
+        block(this)
+    }
 
     private val strokeWidth = 5.dpToPxRounded(context)
     private val iconTintSelected =
@@ -55,12 +65,33 @@ class CheckCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         inflate(context, R.layout.check_card, this)
 
         card.setOnClickListener { isChecked = !isChecked }
+
+        if (name != null) addCard(name!!, this)
     }
 
     fun setOnClickListener(listener: (Boolean) -> Unit) {
         card.setOnClickListener {
             isChecked = !isChecked
             listener(isChecked)
+        }
+    }
+
+    override fun callOnClick(): Boolean {
+        return card.callOnClick()
+    }
+
+    companion object {
+        val id = R.id.checkCard
+        fun inflate(context: Context, parent: ViewGroup, attachToRoot: Boolean = false): View =
+            LayoutInflater.from(context).inflate(R.layout.check_card_wrapper, parent, attachToRoot)
+
+        var allCards = mapOf<String, CheckCard>()
+            private set
+
+        private fun addCard(name: String, card: CheckCard) {
+            allCards = HashMap(allCards).apply {
+                this[name] = card
+            }
         }
     }
 }

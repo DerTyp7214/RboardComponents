@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
 package de.dertyp7214.rboardcomponents.components
 
@@ -13,11 +13,12 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.MenuRes
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.card.MaterialCardView
 import de.dertyp7214.rboardcomponents.R
-import de.dertyp7214.rboardcomponents.core.delayed
+import de.dertyp7214.rboardcomponents.core.*
 
 @SuppressLint("ResourceType")
 class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -41,12 +42,14 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
 
     var instantSearch: Boolean = false
 
+    var imeReturn = true
+
     var text: String = ""
         set(value) {
             field = value
             if (value.isEmpty()) {
                 focus = false
-                searchButton.visibility = VISIBLE
+                searchButton.visibility = if (iconVisible) VISIBLE else INVISIBLE
                 backButton.visibility = GONE
 
                 searchText.visibility = VISIBLE
@@ -71,6 +74,67 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
             else searchButton.setImageResource(R.drawable.ic_baseline_search_24)
         }
 
+    var iconVisible: Boolean = true
+        set(value) {
+            field = value
+            if (value) {
+                searchButton.visibility = VISIBLE
+                searchButton.setWidth(38.dpToPxRounded(context))
+            } else {
+                searchButton.visibility = INVISIBLE
+                searchButton.setWidth(12.dpToPxRounded(context))
+            }
+        }
+
+    var imeOptions
+        set(value) {
+            searchEdit.imeOptions = value
+        }
+        get() = searchEdit.imeOptions
+
+    var inputType
+        set(value) {
+            searchEdit.setRawInputType(value)
+        }
+        get() = searchEdit.inputType
+
+    var hint: CharSequence
+        set(value) {
+            searchEdit.hint = value
+            searchText.text = value
+        }
+        get() = searchEdit.hint
+
+    var incognito
+        @RequiresApi(Build.VERSION_CODES.O)
+        set(value) {
+            searchEdit.imeOptions = EditorInfo.IME_NULL
+            if (value) searchEdit.imeOptions = EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING
+        }
+        @RequiresApi(Build.VERSION_CODES.O)
+        get() = searchEdit.imeOptions and EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING > 0
+
+    var password
+        set(value) {
+            if (value) searchEdit.setRawInputType(EditorInfo.TYPE_TEXT_VARIATION_PASSWORD)
+            else searchEdit.setRawInputType(EditorInfo.TYPE_CLASS_TEXT)
+        }
+        get() = searchEdit.inputType and EditorInfo.TYPE_TEXT_VARIATION_PASSWORD > 0
+
+    var passwordNumber
+        set(value) {
+            if (value) searchEdit.setRawInputType(EditorInfo.TYPE_NUMBER_VARIATION_PASSWORD)
+            else searchEdit.setRawInputType(EditorInfo.TYPE_CLASS_TEXT)
+        }
+        get() = searchEdit.inputType and EditorInfo.TYPE_NUMBER_VARIATION_PASSWORD > 0
+
+    var email
+        set(value) {
+            if (value) searchEdit.setRawInputType(EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
+            else searchEdit.setRawInputType(EditorInfo.TYPE_CLASS_TEXT)
+        }
+        get() = searchEdit.inputType and EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS > 0
+
     init {
         inflate(context, R.layout.search_bar, this)
 
@@ -82,6 +146,13 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
 
         searchText = findViewById(R.id.search_text)
         searchEdit = findViewById(R.id.search)
+
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            intArrayOf(R.attr.showIcon)
+        )
+        iconVisible = typedArray.getBoolean(0, iconVisible)
+        typedArray.recycle()
 
         moreButton.visibility = INVISIBLE
 
@@ -104,7 +175,7 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         backButton.setOnClickListener {
             if (focus) {
                 focus = false
-                searchButton.visibility = VISIBLE
+                searchButton.visibility = if (iconVisible) VISIBLE else INVISIBLE
                 backButton.visibility = GONE
 
                 searchText.visibility = VISIBLE
@@ -125,7 +196,7 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         }
 
         searchEdit.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            if (imeReturn && actionId == imeOptions) {
                 clearFocus(searchEdit)
                 searchListener(searchEdit.text.toString())
                 true
@@ -179,6 +250,17 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
 
     fun setOnMenuListener(listener: (ImageButton) -> Unit) {
         menuListener = listener
+    }
+
+    fun close() {
+        focus = false
+        searchButton.visibility = if (iconVisible) VISIBLE else INVISIBLE
+        backButton.visibility = GONE
+
+        searchText.visibility = VISIBLE
+        searchEdit.visibility = GONE
+
+        searchEdit.setText("")
     }
 
     override fun clearFocus() {

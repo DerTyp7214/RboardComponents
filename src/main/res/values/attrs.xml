@@ -1,5 +1,6 @@
 <resources>
     <declare-styleable name="SearchToolbar">
         <attr name="searchOpen" format="boolean" />
+        <attr name="showIcon" format="boolean" />
     </declare-styleable>
 </resources>
