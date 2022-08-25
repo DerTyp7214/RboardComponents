@@ -36,12 +36,15 @@ object ThemeUtils {
         application.registerActivityLifecycleCallbacks(activityLifecycleCallbacks)
     }
 
-    fun applyTheme(application: Application) {
-        bindService(application) { _, service ->
-            IAppTheme.Stub.asInterface(service).appTheme.let {
-                if (setStyle(application, it)) getActivity()?.recreate()
-            }
-        }
+    fun applyTheme(
+        context: Context,
+        recreate: (Activity?, changed: Boolean) -> Unit = { a, b -> if (b) a?.recreate() }
+    ) {
+        if (!bindService(context) { _, service ->
+                IAppTheme.Stub.asInterface(service).appTheme.let {
+                    recreate(getActivity(), setStyle(context, it))
+                }
+            }) recreate(null, false)
     }
 
     fun getStyleName(context: Context): String {
@@ -92,9 +95,7 @@ object ThemeUtils {
             if (rboardDebugInstalled) setPackage(rboardPackageDebug)
 
             return if (rboardInstalled || rboardDebugInstalled) context.bindService(
-                this,
-                serviceConnection,
-                Context.BIND_AUTO_CREATE
+                this, serviceConnection, Context.BIND_AUTO_CREATE
             )
             else false
         }
@@ -103,8 +104,9 @@ object ThemeUtils {
     @Suppress("DEPRECATION")
     private fun isPackageInstalled(packageName: String, packageManager: PackageManager): Boolean {
         return try {
-            if (Build.VERSION.SDK_INT >= 33)
-                packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0L))
+            if (Build.VERSION.SDK_INT >= 33) packageManager.getPackageInfo(
+                packageName, PackageManager.PackageInfoFlags.of(0L)
+            )
             else packageManager.getPackageInfo(packageName, 0)
             true
         } catch (e: PackageManager.NameNotFoundException) {
@@ -144,12 +146,5 @@ object ThemeUtils {
 }
 
 enum class THEMES {
-    BLUE,
-    GREEN,
-    RED,
-    YELLOW,
-    ORANGE,
-    PINK,
-    LIME,
-    DEFAULT
+    BLUE, GREEN, RED, YELLOW, ORANGE, PINK, LIME, DEFAULT
 }
