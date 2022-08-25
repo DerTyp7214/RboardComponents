@@ -45,12 +45,13 @@ object ThemeUtils {
     }
 
     fun getStyleName(context: Context): String {
-        return context.preferences.getString("app_style", "default") ?: "default"
+        return context.preferences.getString("app_style", THEMES.DEFAULT.name)
+            ?: THEMES.DEFAULT.name
     }
 
     fun setStyle(context: Context, theme: THEMES) = setStyle(context, theme.name)
     fun setStyle(context: Context, style: String) = context.preferences.let { preferences ->
-        val current = preferences.getString("app_style", "default")
+        val current = preferences.getString("app_style", THEMES.DEFAULT.name)
         preferences.edit {
             putString("app_style", style)
         }
@@ -128,16 +129,16 @@ object ThemeUtils {
     private fun applyThemeOverlay(activity: Activity) {
         val style = getStyleName(activity)
         val themeOverlay = when (style) {
-            "blue" -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
-            "green" -> R.style.ThemeOverlay_RboardThemeManager_Colors_green
-            "lime" -> R.style.ThemeOverlay_RboardThemeManager_Colors_lime
-            "orange" -> R.style.ThemeOverlay_RboardThemeManager_Colors_orange
-            "pink" -> R.style.ThemeOverlay_RboardThemeManager_Colors_pink
-            "red" -> R.style.ThemeOverlay_RboardThemeManager_Colors_red
-            "yellow" -> R.style.ThemeOverlay_RboardThemeManager_Colors_yellow
+            THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
+            THEMES.GREEN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green
+            THEMES.LIME.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_lime
+            THEMES.ORANGE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_orange
+            THEMES.PINK.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_pink
+            THEMES.RED.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_red
+            THEMES.YELLOW.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_yellow
             else -> null
         }
-        if (style == "default") DynamicColors.applyToActivityIfAvailable(activity)
+        if (style == THEMES.DEFAULT.name) DynamicColors.applyToActivityIfAvailable(activity)
         else if (themeOverlay != null) activity.applyThemeOverlay(themeOverlay)
     }
 }
