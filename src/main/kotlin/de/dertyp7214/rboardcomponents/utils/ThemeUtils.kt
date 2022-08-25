@@ -128,7 +128,7 @@ object ThemeUtils {
         override fun onActivityDestroyed(activity: Activity) {}
     }
 
-    private fun applyThemeOverlay(activity: Activity) {
+    fun applyThemeOverlay(activity: Activity) {
         val style = getStyleName(activity)
         val themeOverlay = when (style) {
             THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
