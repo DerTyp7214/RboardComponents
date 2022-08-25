@@ -1,3 +1,12 @@
 <resources>
     <string name="search">Search</string>
+
+    <string name="style_default">Default</string>
+    <string name="style_green">Green</string>
+    <string name="style_yellow">Yellow</string>
+    <string name="style_pink">Pink</string>
+    <string name="style_red">Red</string>
+    <string name="style_blue">Blue</string>
+    <string name="style_orange">Orange</string>
+    <string name="style_lime">Lime</string>
 </resources>

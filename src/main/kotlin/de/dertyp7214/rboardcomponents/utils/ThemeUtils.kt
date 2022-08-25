@@ -16,6 +16,17 @@ import de.dertyp7214.rboardcomponents.core.applyThemeOverlay
 import de.dertyp7214.rboardcomponents.core.preferences
 
 object ThemeUtils {
+    val APP_THEMES = mapOf(
+        R.string.style_blue to "blue",
+        R.string.style_green to "green",
+        R.string.style_red to "red",
+        R.string.style_yellow to "yellow",
+        R.string.style_orange to "orange",
+        R.string.style_pink to "pink",
+        R.string.style_lime to "lime",
+        R.string.style_default to "default"
+    )
+
     fun registerActivityLifecycleCallbacks(application: Application) {
         application.registerActivityLifecycleCallbacks(activityLifecycleCallbacks)
     }
