@@ -12,6 +12,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
+import androidx.annotation.StyleRes
 import androidx.core.content.edit
 import com.google.android.material.color.DynamicColors
 import de.dertyp7214.rboard.IAppTheme
@@ -128,9 +129,9 @@ object ThemeUtils {
         override fun onActivityDestroyed(activity: Activity) {}
     }
 
-    fun applyThemeOverlay(activity: Activity) {
-        val style = getStyleName(activity)
-        val themeOverlay = when (style) {
+    @StyleRes
+    fun getTheme(context: Context, style: String = getStyleName(context)): Int? {
+        return when (style) {
             THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
             THEMES.GREEN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green
             THEMES.LIME.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_lime
@@ -140,8 +141,15 @@ object ThemeUtils {
             THEMES.YELLOW.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_yellow
             else -> null
         }
-        if (style == THEMES.DEFAULT.name) DynamicColors.applyToActivityIfAvailable(activity)
-        else if (themeOverlay != null) activity.applyThemeOverlay(themeOverlay)
+    }
+
+    fun applyThemeOverlay(context: Context) {
+        val style = getStyleName(context)
+        val themeOverlay = getTheme(context, style)
+        if (style == THEMES.DEFAULT.name) {
+            if (context is Activity)
+                DynamicColors.applyToActivityIfAvailable(context)
+        } else if (themeOverlay != null) context.applyThemeOverlay(themeOverlay)
     }
 }
 
