@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package de.dertyp7214.rboardcomponents.utils
 
 import kotlinx.coroutines.CoroutineScope
@@ -11,7 +13,7 @@ fun doInBackground(doInBackground: () -> Unit) {
     }
 }
 
-fun <T> doAsync(doInBackground: () -> T, getResult: (result: T) -> Unit) {
+fun <T> doAsync(doInBackground: () -> T, getResult: (result: T) -> Unit = {}) {
     CoroutineScope(Dispatchers.Main).launch {
         withContext(Dispatchers.Default) {
             val result = doInBackground()
