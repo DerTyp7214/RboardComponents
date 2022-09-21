@@ -1,0 +1,12 @@
+<resources>
+    <string name="search">Keresés</string>
+
+    <string name="style_default">Alapértelmezett</string>
+    <string name="style_green">Zöld</string>
+    <string name="style_yellow">Sárga</string>
+    <string name="style_pink">Rózsaszín</string>
+    <string name="style_red">Piros</string>
+    <string name="style_blue">Kék</string>
+    <string name="style_orange">Narancssárga</string>
+    <string name="style_lime">Lime</string>
+</resources>
