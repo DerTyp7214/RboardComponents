@@ -13,6 +13,18 @@ fun doInBackground(doInBackground: () -> Unit) {
     }
 }
 
+fun doIoInBackground(doInBackground: () -> Unit) {
+    CoroutineScope(Dispatchers.Main).launch {
+        withContext(Dispatchers.IO) { doInBackground() }
+    }
+}
+
+inline fun runOnMain(crossinline run: () -> Unit) {
+    CoroutineScope(Dispatchers.Main).launch {
+        run()
+    }
+}
+
 fun <T> doAsync(doInBackground: () -> T, getResult: (result: T) -> Unit = {}) {
     CoroutineScope(Dispatchers.Main).launch {
         withContext(Dispatchers.Default) {
