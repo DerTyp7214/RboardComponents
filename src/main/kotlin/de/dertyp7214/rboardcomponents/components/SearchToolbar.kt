@@ -1,4 +1,4 @@
-@file:Suppress("unused", "MemberVisibilityCanBePrivate", "DEPRECATION")
+@file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
 package de.dertyp7214.rboardcomponents.components
 
