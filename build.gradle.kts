@@ -8,6 +8,8 @@ android {
     namespace = "de.dertyp7214.rboardcomponents"
     compileSdk = 33
 
+    buildFeatures.aidl = true
+
     defaultConfig {
         minSdk = 23
 
