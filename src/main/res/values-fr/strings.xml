@@ -1,0 +1,12 @@
+<resources>
+    <string name="search">Rechercher</string>
+
+    <string name="style_default">Par défaut</string>
+    <string name="style_green">Vert</string>
+    <string name="style_yellow">Jaune</string>
+    <string name="style_pink">rose</string>
+    <string name="style_red">Rouge</string>
+    <string name="style_blue">Bleu</string>
+    <string name="style_orange">Orange</string>
+    <string name="style_lime">Citron</string>
+</resources>
