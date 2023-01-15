@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.config.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -30,7 +33,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_15
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_15.toString()
+        jvmTarget = JvmTarget.JVM_15.description
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JvmTarget.JVM_15.description
+        }
     }
 }
 
@@ -43,6 +52,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0-RC")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
 }
