@@ -6,7 +6,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-@Suppress("UnstableApiUsage")
 android {
     namespace = "de.dertyp7214.rboardcomponents"
     compileSdk = 33
@@ -29,16 +28,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_15
-        targetCompatibility = JavaVersion.VERSION_15
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = JvmTarget.JVM_15.description
+        jvmTarget = JvmTarget.JVM_17.toString()
     }
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JvmTarget.JVM_15.description
+            jvmTarget = JvmTarget.JVM_17.description
         }
     }
 }
@@ -46,12 +45,13 @@ android {
 dependencies {
     implementation(project(":colorutilsc"))
     implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
-    implementation("com.google.android.material:material:1.8.0-rc01")
+    implementation("androidx.appcompat:appcompat:1.6.0")
+    implementation("com.google.android.material:material:1.9.0-alpha01")
     implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation("androidx.core:core-ktx:1.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
 }
