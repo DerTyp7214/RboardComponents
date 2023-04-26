@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "de.dertyp7214.rboardcomponents"
-    compileSdk = 33
+    compileSdkPreview = "UpsideDownCake"
 
     buildFeatures.aidl = true
 
@@ -44,14 +44,14 @@ android {
 
 dependencies {
     implementation(project(":colorutilsc"))
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0-beta01")
+    implementation("com.google.android.material:material:1.10.0-alpha01")
     implementation("androidx.preference:preference-ktx:1.2.0")
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.20")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.20")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.21")
 }
