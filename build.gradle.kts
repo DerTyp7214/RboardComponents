@@ -47,7 +47,7 @@ dependencies {
     implementation(project(":colorutilsc"))
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0-alpha02")
+    implementation("com.google.android.material:material:1.10.0-alpha03")
     implementation("androidx.preference:preference-ktx:1.2.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
