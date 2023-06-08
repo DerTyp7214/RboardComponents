@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "de.dertyp7214.rboardcomponents"
-    buildToolsVersion = "34.0.0 rc4"
+    buildToolsVersion = "34.0.0"
     compileSdkPreview = "UpsideDownCake"
 
     buildFeatures.aidl = true
@@ -52,6 +52,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.21")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.21")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.22")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.22")
 }
