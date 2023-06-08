@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "de.dertyp7214.rboardcomponents"
-    buildToolsVersion = "34.0.0"
+    buildToolsVersion = "34.0.0-rc4"
     compileSdkPreview = "UpsideDownCake"
 
     buildFeatures.aidl = true
