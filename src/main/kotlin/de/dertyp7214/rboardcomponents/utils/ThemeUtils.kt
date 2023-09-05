@@ -102,7 +102,6 @@ object ThemeUtils {
         }
     }
 
-    @Suppress("DEPRECATION")
     private fun isPackageInstalled(packageName: String, packageManager: PackageManager): Boolean {
         return try {
             if (Build.VERSION.SDK_INT >= 33) packageManager.getPackageInfo(
