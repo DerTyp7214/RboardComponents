@@ -41,7 +41,7 @@ object ThemeUtils {
         context: Context,
         recreate: (Activity?, changed: Boolean) -> Unit = { a, b -> if (b) a?.recreate() }
     ) {
-        if (!bindService(context) { _, service ->
+        if (!bindService(context, IAppTheme::class.java) { _, service ->
                 IAppTheme.Stub.asInterface(service).appTheme.let {
                     recreate(getActivity(), setStyle(context, it))
                 }
@@ -79,12 +79,21 @@ object ThemeUtils {
 
     fun bindService(
         context: Context,
+        serviceInterface: Class<*> = IAppTheme::class.java,
         onDisconnected: (className: ComponentName) -> Unit = {},
         onConnected: (className: ComponentName, service: IBinder) -> Unit = { _, _ -> }
-    ) = bindService(context, getServiceConnection(onDisconnected, onConnected))
+    ) = bindService(
+        context,
+        getServiceConnection(onDisconnected, onConnected),
+        serviceInterface
+    )
 
-    fun bindService(context: Context, serviceConnection: ServiceConnection): Boolean {
-        Intent(IAppTheme::class.java.name).apply {
+    fun bindService(
+        context: Context,
+        serviceConnection: ServiceConnection,
+        serviceInterface: Class<*> = IAppTheme::class.java
+    ): Boolean {
+        Intent(serviceInterface.name).apply {
             val rboardPackage = "de.dertyp7214.rboardthememanager"
             val rboardPackageDebug = "de.dertyp7214.rboardthememanager.debug"
 
