@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 data class ThemeMetadata(
     @SerializedName("format_version")
     val formatVersion: Int = 3,
-    val id: String = "gboard_theme_creator_${Math.random()}",
+    var id: String = "gboard_theme_creator_${Math.random()}",
     val name: String,
     @SerializedName("prefer_key_border")
     val preferKeyBorder: Boolean = true,
@@ -18,11 +18,11 @@ data class ThemeMetadata(
     @SerializedName("is_light_theme")
     val isLightTheme: Boolean,
     @SerializedName("style_sheets")
-    val styleSheets: List<String> = listOf(
+    val styleSheets: ArrayList<String> = arrayListOf(
         "style_sheet_variables.css",
         "style_sheet_md2.css"
     ),
-    val flavors: List<Flavor> = listOf(
+    val flavors: ArrayList<Flavor> = arrayListOf(
         Flavor()
     )
 ) : Parcelable {
@@ -35,7 +35,7 @@ data class ThemeMetadata(
 data class Flavor(
     val type: String = "BORDER",
     @SerializedName("style_sheets")
-    val styleSheets: List<String> = listOf(
+    val styleSheets: ArrayList<String> = arrayListOf(
         "style_sheet_md2_border.css"
     )
 ) : Parcelable
