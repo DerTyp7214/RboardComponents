@@ -1,9 +1,17 @@
 <resources>
     <string name="search">Rechercher</string>
 
-    <string name="style_default">Par défaut</string>
+    <string name="style_default">Par Défaut</string>
     <string name="style_green">Vert</string>
-    <string name="style_green_brown">Vert marron</string>
+    <string name="style_green_brown">Vert Marron</string>
+    <string name="style_monochrome">Monochromes</string>
+    <string name="style_apocyan">Apocyen</string>
+    <string name="style_amoled">Amolé</string>
+    <string name="style_lavender_tonic">Tonique à la lavande</string>
+    <string name="style_yellow_purple">Jaune Violet</string>
+    <string name="style_samoan_sun">Soleil Samoan</string>
+    <string name="style_peach_pearl">Pêche Perle</string>
+    <string name="style_brown_blue">Marron Bleu</string>
     <string name="style_yellow">Jaune</string>
     <string name="style_pink">rose</string>
     <string name="style_red">Rouge</string>

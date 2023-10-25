@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="green_brown_seed">#2D6A3B</color>
     <color name="green_brown_md_theme_light_primary">#2D6A3B</color>
     <color name="green_brown_md_theme_light_onPrimary">#FFFFFF</color>
     <color name="green_brown_md_theme_light_primaryContainer">#B0F2B6</color>

@@ -3,11 +3,19 @@
 
     <string name="style_default">Alapértelmezett</string>
     <string name="style_green">Zöld</string>
-    <string name="style_green_brown">Zöld barna</string>
+    <string name="style_green_brown">Zöld Barna</string>
+    <string name="style_monochrome">Monokróm</string>
+    <string name="style_apocyan">Apocián</string>
+    <string name="style_amoled">Amoled</string>
+    <string name="style_lavender_tonic">Levendula Tonik</string>
+    <string name="style_peach_pearl">Őszibarack Gyöngyszem</string>
+    <string name="style_yellow_purple">Sárga Lila</string>
+    <string name="style_samoan_sun">Szamoai Nap</string>
+    <string name="style_brown_blue">Barna Kék</string>
     <string name="style_yellow">Sárga</string>
     <string name="style_pink">Rózsaszín</string>
     <string name="style_red">Piros</string>
     <string name="style_blue">Kék</string>
     <string name="style_orange">Narancssárga</string>
-    <string name="style_lime">Lime</string>
+    <string name="style_lime">Zöldcitrom</string>
 </resources>
