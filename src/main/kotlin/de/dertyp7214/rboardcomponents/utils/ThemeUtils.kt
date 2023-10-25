@@ -25,6 +25,7 @@ object ThemeUtils {
     val APP_THEMES = mapOf(
         R.string.style_blue to THEMES.BLUE.name,
         R.string.style_green to THEMES.GREEN.name,
+        R.string.style_green_brown to THEMES.GREEN_BROWN.name,
         R.string.style_red to THEMES.RED.name,
         R.string.style_yellow to THEMES.YELLOW.name,
         R.string.style_orange to THEMES.ORANGE.name,
@@ -142,6 +143,7 @@ object ThemeUtils {
         return when (style) {
             THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
             THEMES.GREEN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green
+            THEMES.GREEN_BROWN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green_brown
             THEMES.LIME.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_lime
             THEMES.ORANGE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_orange
             THEMES.PINK.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_pink
@@ -151,16 +153,23 @@ object ThemeUtils {
         }
     }
 
-    fun applyThemeOverlay(context: Context) {
+    fun applyThemeOverlay(context: Context, defaultTheme: Int? = null): Context {
         val style = getStyleName(context)
         val themeOverlay = getTheme(context, style)
         if (style == THEMES.DEFAULT.name) {
             if (context is Activity)
                 DynamicColors.applyToActivityIfAvailable(context)
+            else if (defaultTheme != null) return DynamicColors.wrapContextIfAvailable(context.apply {
+                applyThemeOverlay(
+                    defaultTheme
+                )
+            })
+            else return DynamicColors.wrapContextIfAvailable(context)
         } else if (themeOverlay != null) context.applyThemeOverlay(themeOverlay)
+        return context
     }
 }
 
 enum class THEMES {
-    BLUE, GREEN, RED, YELLOW, ORANGE, PINK, LIME, DEFAULT
+    BLUE, GREEN, GREEN_BROWN, RED, YELLOW, ORANGE, PINK, LIME, DEFAULT
 }

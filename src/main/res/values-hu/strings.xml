@@ -3,6 +3,7 @@
 
     <string name="style_default">Alapértelmezett</string>
     <string name="style_green">Zöld</string>
+    <string name="style_green_brown">Zöld barna</string>
     <string name="style_yellow">Sárga</string>
     <string name="style_pink">Rózsaszín</string>
     <string name="style_red">Piros</string>

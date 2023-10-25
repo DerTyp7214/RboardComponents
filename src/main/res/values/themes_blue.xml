@@ -1,5 +1,4 @@
 <resources>
-
     <style name="ThemeOverlay.RboardThemeManager.Colors_blue" parent="">
         <item name="colorPrimary">@color/blue_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/blue_md_theme_light_onPrimary</item>
