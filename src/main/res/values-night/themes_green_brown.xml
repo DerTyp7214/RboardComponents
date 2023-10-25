@@ -27,7 +27,7 @@
         <item name="colorSurfaceInverse">@color/green_brown_md_theme_dark_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/green_brown_md_theme_dark_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/green_brown_md_theme_dark_inversePrimary</item>
-        <item name="colorSurfaceContainerHighest">@color/green_brown_md_theme_dark_SurfaceContainerHighest</item>
+        <item name="colorSurfaceContainerHighest">@color/green_brown_md_theme_dark_surfaceContainerHighest</item>
         <item name="colorSurfaceContainerHigh">@color/green_brown_md_theme_dark_surfaceContainerHigh</item>
         <item name="colorSurfaceContainer">@color/green_brown_md_theme_dark_surfaceContainer</item>
         <item name="colorSurfaceContainerLow">@color/green_brown_md_theme_dark_surfaceContainerLow</item>
