@@ -17,4 +17,7 @@
     <string name="style_blue">Bleu</string>
     <string name="style_orange">Orange</string>
     <string name="style_lime">Citron</string>
+    <string name="style_amoled">Amoled</string>
+    <string name="style_night_rider">Night Rider</string>
+    <string name="style_mary_blue">Mary Blue</string>
 </resources>
