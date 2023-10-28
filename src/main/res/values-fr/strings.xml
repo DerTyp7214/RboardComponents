@@ -6,18 +6,20 @@
     <string name="style_green_brown">Vert Marron</string>
     <string name="style_monochrome">Monochromes</string>
     <string name="style_apocyan">Apocyen</string>
-    <string name="style_lavender_tonic">Tonique à la lavande</string>
+    <string name="style_lavender_tonic">Tonique à La Lavande</string>
     <string name="style_yellow_blue">Jaune Bleu</string>
     <string name="style_samoan_sun">Soleil Samoan</string>
     <string name="style_peach_pearl">Pêche Perle</string>
     <string name="style_brown_blue">Marron Bleu</string>
     <string name="style_yellow">Jaune</string>
-    <string name="style_pink">rose</string>
+    <string name="style_pink">Rose</string>
     <string name="style_red">Rouge</string>
     <string name="style_blue">Bleu</string>
     <string name="style_orange">Orange</string>
     <string name="style_lime">Citron</string>
-    <string name="style_amoled">Amoled</string>
-    <string name="style_night_rider">Night Rider</string>
-    <string name="style_mary_blue">Mary Blue</string>
+    <string name="style_amoled">Amolé</string>
+    <string name="style_night_rider">Coureur De Nuit</string>
+    <string name="style_mary_blue">Marie Bleue</string>
+    <string name="style_mud_pink">Rose boue</string>
+    <string name="style_vert_pierre">Vert Pierre</string>
 </resources>

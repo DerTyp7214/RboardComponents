@@ -33,12 +33,14 @@ object ThemeUtils {
         R.string.style_lime to THEMES.LIME.name,
         R.string.style_mary_blue to THEMES.MARY_BLUE.name,
         R.string.style_monochrome to THEMES.MONOCHROME.name,
+        R.string.style_mud_pink to THEMES.MUD_PINK.name,
         R.string.style_night_rider to THEMES.NIGHT_RIDER.name,
         R.string.style_orange to THEMES.ORANGE.name,
         R.string.style_pink to THEMES.PINK.name,
         R.string.style_peach_pearl to THEMES.PEACH_PEARL.name,
         R.string.style_red to THEMES.RED.name,
         R.string.style_samoan_sun to THEMES.SAMOAN_SUN.name,
+        R.string.style_vert_pierre to THEMES.VERT_PIERRE.name,
         R.string.style_yellow to THEMES.YELLOW.name,
         R.string.style_yellow_blue to THEMES.YELLOW_BLUE.name,
         R.string.style_default to THEMES.DEFAULT.name
@@ -155,6 +157,7 @@ object ThemeUtils {
             THEMES.APOCYAN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_apocyan
             THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
             THEMES.BROWN_BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_brown_blue
+            THEMES.MUD_PINK.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_mud_pink
             THEMES.GREEN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green
             THEMES.GREEN_BROWN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_green_brown
             THEMES.LAVENDER_TONIC.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_lavender_tonic
@@ -167,6 +170,7 @@ object ThemeUtils {
             THEMES.PEACH_PEARL.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_peach_pearl
             THEMES.RED.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_red
             THEMES.SAMOAN_SUN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_samoan_sun
+            THEMES.VERT_PIERRE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_vert_pierre
             THEMES.YELLOW.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_yellow
             THEMES.YELLOW_BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_yellow_blue
             else -> null
@@ -191,5 +195,5 @@ object ThemeUtils {
 }
 
 enum class THEMES {
-    BLUE, GREEN, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, BROWN_BLUE, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, DEFAULT
+    BLUE, GREEN, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, VERT_PIERRE, BROWN_BLUE, MUD_PINK, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, DEFAULT
 }
