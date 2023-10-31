@@ -38,6 +38,8 @@ object ThemeUtils {
         R.string.style_orange to THEMES.ORANGE.name,
         R.string.style_pink to THEMES.PINK.name,
         R.string.style_peach_pearl to THEMES.PEACH_PEARL.name,
+        R.string.style_rboard_v1 to THEMES.RBOARD_V1.name,
+        R.string.style_rboard_v2 to THEMES.RBOARD_V2.name,
         R.string.style_red to THEMES.RED.name,
         R.string.style_samoan_sun to THEMES.SAMOAN_SUN.name,
         R.string.style_vert_pierre to THEMES.VERT_PIERRE.name,
@@ -168,6 +170,8 @@ object ThemeUtils {
             THEMES.ORANGE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_orange
             THEMES.PINK.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_pink
             THEMES.PEACH_PEARL.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_peach_pearl
+            THEMES.RBOARD_V1.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_rboard_v1
+            THEMES.RBOARD_V2.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_rboard_v2
             THEMES.RED.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_red
             THEMES.SAMOAN_SUN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_samoan_sun
             THEMES.VERT_PIERRE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_vert_pierre
@@ -195,5 +199,5 @@ object ThemeUtils {
 }
 
 enum class THEMES {
-    BLUE, GREEN, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, VERT_PIERRE, BROWN_BLUE, MUD_PINK, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, DEFAULT
+    BLUE, GREEN, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, VERT_PIERRE, RBOARD_V1, RBOARD_V2, BROWN_BLUE, MUD_PINK, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, DEFAULT
 }
