@@ -30,16 +30,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_20
-        targetCompatibility = JavaVersion.VERSION_20
+        sourceCompatibility = JavaVersion.VERSION_22
+        targetCompatibility = JavaVersion.VERSION_22
     }
     kotlinOptions {
-        jvmTarget = JvmTarget.JVM_20.toString()
+        jvmTarget = JvmTarget.JVM_22.toString()
     }
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JvmTarget.JVM_20.description
+            jvmTarget = JvmTarget.JVM_22.description
         }
     }
 }
