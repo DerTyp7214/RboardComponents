@@ -18,10 +18,11 @@
     <string name="style_red">Piros</string>
     <string name="style_blue">Kék</string>
     <string name="style_orange">Narancssárga</string>
-    <string name="style_lime">Zöldcitrom</string>
+    <string name="style_lime">Lime</string>
     <string name="style_amoled">Amoled</string>
-    <string name="style_night_rider">Éjszakai Lovas</string>
+    <string name="style_night_rider">Éjjeli Lovas</string>
     <string name="style_mary_blue">Mary Kék</string>
     <string name="style_mud_pink">Sár Rózsaszín</string>
     <string name="style_vert_pierre">Kőzöld</string>
+    <string name="style_teal">Zöldeskék</string>
 </resources>
