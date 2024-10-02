@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.config.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -9,7 +6,6 @@ plugins {
 
 android {
     namespace = "de.dertyp7214.rboardcomponents"
-    buildToolsVersion = "35.0.0"
     compileSdk = 35
 
     buildFeatures.aidl = true
@@ -30,11 +26,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_22
-        targetCompatibility = JavaVersion.VERSION_22
+        sourceCompatibility = JavaVersion.current()
+        targetCompatibility = JavaVersion.current()
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_22.toString()
+        jvmTarget = JavaVersion.current().toString()
     }
 }
 
