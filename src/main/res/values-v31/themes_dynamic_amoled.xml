@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.RboardThemeManager.Colors_dynamic_amoled" parent="">
+        <item name="colorPrimary">@android:color/system_accent1_600</item>
+        <item name="colorOnPrimary">@android:color/system_accent1_0</item>
+        <item name="colorPrimaryContainer">@android:color/system_accent1_100</item>
+        <item name="colorOnPrimaryContainer">@android:color/system_accent1_900</item>
+        <item name="colorSecondary">@android:color/system_accent2_600</item>
+        <item name="colorOnSecondary">@android:color/system_accent2_0</item>
+        <item name="colorSecondaryContainer">@android:color/system_accent2_100</item>
+        <item name="colorOnSecondaryContainer">@android:color/system_accent2_900</item>
+        <item name="colorTertiary">@android:color/system_accent3_600</item>
+        <item name="colorOnTertiary">@android:color/system_accent3_0</item>
+        <item name="colorTertiaryContainer">@android:color/system_accent3_100</item>
+        <item name="colorOnTertiaryContainer">@android:color/system_accent3_900</item>
+        <item name="colorError">@color/amoled_md_theme_light_error</item>
+        <item name="colorOnError">@color/amoled_md_theme_light_onError</item>
+        <item name="colorErrorContainer">@color/amoled_md_theme_light_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/amoled_md_theme_light_onErrorContainer</item>
+        <item name="colorOutline">@color/amoled_md_theme_light_outline</item>
+        <item name="android:colorBackground">@color/amoled_md_theme_light_background</item>
+        <item name="colorOnBackground">@color/amoled_md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/amoled_md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/amoled_md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/amoled_md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/amoled_md_theme_light_onSurfaceVariant</item>
+        <item name="colorSurfaceInverse">@color/amoled_md_theme_light_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/amoled_md_theme_light_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/amoled_md_theme_light_inversePrimary</item>
+        <item name="colorSurfaceContainerHighest">@color/amoled_md_theme_light_SurfaceContainerHighest</item>
+        <item name="colorSurfaceContainerHigh">@color/amoled_md_theme_light_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainer">@color/amoled_md_theme_light_surfaceContainer</item>
+        <item name="colorSurfaceContainerLow">@color/amoled_md_theme_light_surfaceContainerLow</item>
+        <item name="colorSurfaceContainerLowest">@color/amoled_md_theme_light_surfaceContainerLowest</item>
+    </style>
+</resources>

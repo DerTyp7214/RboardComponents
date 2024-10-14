@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
@@ -24,6 +25,7 @@ import de.dertyp7214.rboardcomponents.core.preferences
 object ThemeUtils {
     val APP_THEMES = mapOf(
         R.string.style_amoled to THEMES.AMOLED.name,
+        R.string.style_dynamic_amoled to THEMES.DYNAMIC_AMOLED.name,
         R.string.style_apocyan to THEMES.APOCYAN.name,
         R.string.style_blue to THEMES.BLUE.name,
         R.string.style_brown_blue to THEMES.BROWN_BLUE.name,
@@ -157,6 +159,7 @@ object ThemeUtils {
     fun getTheme(context: Context, style: String = getStyleName(context)): Int? {
         return when (style) {
             THEMES.AMOLED.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_amoled
+            THEMES.DYNAMIC_AMOLED.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_dynamic_amoled
             THEMES.APOCYAN.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_apocyan
             THEMES.BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_blue
             THEMES.BROWN_BLUE.name -> R.style.ThemeOverlay_RboardThemeManager_Colors_brown_blue
@@ -201,5 +204,5 @@ object ThemeUtils {
 }
 
 enum class THEMES {
-    BLUE, GREEN, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, VERT_PIERRE, RBOARD_V1, RBOARD_V2, BROWN_BLUE, MUD_PINK, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, TEAL, DEFAULT
+    BLUE, GREEN, DYNAMIC_AMOLED, GREEN_BROWN, MONOCHROME, APOCYAN, LAVENDER_TONIC, VERT_PIERRE, RBOARD_V1, RBOARD_V2, BROWN_BLUE, MUD_PINK, MARY_BLUE, NIGHT_RIDER, AMOLED, PEACH_PEARL, RED, YELLOW, YELLOW_BLUE, SAMOAN_SUN, ORANGE, PINK, LIME, TEAL, DEFAULT
 }
