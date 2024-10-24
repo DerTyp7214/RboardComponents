@@ -4,8 +4,10 @@ package de.dertyp7214.rboardcomponents.components
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.WindowInsets
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
@@ -14,6 +16,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.MenuRes
 import androidx.annotation.RequiresApi
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.card.MaterialCardView
@@ -218,6 +221,20 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
             PopupMenu(context, moreButton).also { popup ->
                 popup.menuInflater.inflate(menu, popup.menu)
                 popup.setOnMenuItemClickListener(itemClickListener)
+                if (popup.menu is MenuBuilder) {
+                    val menuBuilder = popup.menu as MenuBuilder
+                    menuBuilder.setOptionalIconsVisible(true)
+                    for (item in menuBuilder.visibleItems) {
+                        val ICON_MARGIN = 4
+                        val iconMarginPx =
+                            TypedValue.applyDimension(
+                                TypedValue.COMPLEX_UNIT_DIP, ICON_MARGIN.toFloat(), resources.displayMetrics)
+                                .toInt()
+                        if (item.icon != null) {
+                            item.icon = InsetDrawable(item.icon, iconMarginPx, 0, iconMarginPx,0)
+                        }
+                    }
+                }
             }
         } else {
             moreButton.visibility = INVISIBLE
