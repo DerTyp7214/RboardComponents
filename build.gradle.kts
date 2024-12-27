@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "de.dertyp7214.rboardcomponents"
-    buildToolsVersion = "36.0.0 rc1"
+    buildToolsVersion = "36.0.0 rc3"
     compileSdkPreview = "Baklava"
 
     buildFeatures.aidl = true
