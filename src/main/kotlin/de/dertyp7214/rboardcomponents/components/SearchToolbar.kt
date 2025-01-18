@@ -22,6 +22,7 @@ import de.dertyp7214.rboardcomponents.core.dpToPx
 import de.dertyp7214.rboardcomponents.core.getAttr
 import de.dertyp7214.rboardcomponents.core.setMargin
 import kotlin.math.roundToInt
+import androidx.core.content.withStyledAttributes
 
 @SuppressLint("ResourceType")
 class SearchToolbar(
@@ -35,7 +36,7 @@ class SearchToolbar(
 
     private val toolbar: MaterialToolbar
 
-    private val toolbarColor: Int
+    private var toolbarColor: Int = 0
     private val cornerRadius = context.resources.getDimension(R.dimen.roundCorners)
     private val margin = 8.dpToPx(context)
 
@@ -53,15 +54,15 @@ class SearchToolbar(
         toolbar = findViewById(R.id.searchToolbar_toolbar)
         searchBar = findViewById(R.id.searchToolbar_searchBar)
 
-        val typedArray = context.obtainStyledAttributes(
+        context.withStyledAttributes(
             attrs,
             intArrayOf(androidx.appcompat.R.attr.menu, android.R.attr.background, R.attr.searchOpen)
-        )
-        typedArray.getResourceId(0, -1).let { if (it != -1) toolbar.inflateMenu(it) }
-        toolbarColor =
-            typedArray.getColor(1, surfaceColor)
-        searchOpen = typedArray.getBoolean(2, false)
-        typedArray.recycle()
+        ) {
+            getResourceId(0, -1).let { if (it != -1) toolbar.inflateMenu(it) }
+            toolbarColor =
+                getColor(1, surfaceColor)
+            searchOpen = getBoolean(2, false)
+        }
 
         toolbar.setBackgroundColor(toolbarColor)
         setBackgroundColor(Color.TRANSPARENT)

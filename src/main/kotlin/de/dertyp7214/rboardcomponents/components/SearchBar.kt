@@ -22,6 +22,7 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.material.card.MaterialCardView
 import de.dertyp7214.rboardcomponents.R
 import de.dertyp7214.rboardcomponents.core.*
+import androidx.core.content.withStyledAttributes
 
 @SuppressLint("ResourceType")
 class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -150,12 +151,12 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         searchText = findViewById(R.id.search_text)
         searchEdit = findViewById(R.id.search)
 
-        val typedArray = context.obtainStyledAttributes(
+        context.withStyledAttributes(
             attrs,
             intArrayOf(R.attr.showIcon)
-        )
-        iconVisible = typedArray.getBoolean(0, iconVisible)
-        typedArray.recycle()
+        ) {
+            iconVisible = getBoolean(0, iconVisible)
+        }
 
         moreButton.visibility = INVISIBLE
 
