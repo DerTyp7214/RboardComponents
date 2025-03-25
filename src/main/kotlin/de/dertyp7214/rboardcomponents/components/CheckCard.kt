@@ -27,7 +27,7 @@ class CheckCard(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
 
     private val strokeWidth = 5.dpToPxRounded(context)
     private val iconTintSelected =
-        ColorStateList.valueOf(context.getAttr(com.google.android.material.R.attr.colorPrimary))
+        ColorStateList.valueOf(context.getAttr(androidx.appcompat.R.attr.colorPrimary))
     private val iconTint =
         ColorStateList.valueOf(context.getAttr(com.google.android.material.R.attr.colorOnSurfaceVariant))
 

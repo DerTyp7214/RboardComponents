@@ -23,6 +23,7 @@ import de.dertyp7214.rboardcomponents.core.getAttr
 import de.dertyp7214.rboardcomponents.core.setMargin
 import kotlin.math.roundToInt
 import androidx.core.content.withStyledAttributes
+import kotlinx.coroutines.flow.combine
 
 @SuppressLint("ResourceType")
 class SearchToolbar(
@@ -92,7 +93,7 @@ class SearchToolbar(
     private fun openSearch(open: Boolean, animated: Boolean = true) {
         val searchBarColor = ColorUtilsC.overlayColors(
             ColorUtilsC.setAlphaComponent(
-                context.getAttr(com.google.android.material.R.attr.colorPrimary),
+                context.getAttr(androidx.appcompat.R.attr.colorPrimary),
                 25
             ), surfaceColor
         )
