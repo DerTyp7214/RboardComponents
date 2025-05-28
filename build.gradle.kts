@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -8,7 +10,7 @@ android {
     namespace = "de.dertyp7214.rboardcomponents"
     buildToolsVersion = "36.0.0"
     compileSdk = 36
-
+    ndkVersion = "28.1.13356709"
     buildFeatures.aidl = true
 
     defaultConfig {
@@ -16,22 +18,27 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    testOptions {
+        targetSdk = 36
+    }
 
+    lint {
+        targetSdk = 36
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.current()
-        targetCompatibility = JavaVersion.current()
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.current().toString()
+
+    kotlin {
+        compilerOptions {
+            jvmToolchain(23)
+            jvmTarget.set(JvmTarget.JVM_23)
+        }
     }
 }
 
