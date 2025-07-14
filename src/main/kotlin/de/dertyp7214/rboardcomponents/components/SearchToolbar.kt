@@ -124,7 +124,7 @@ class SearchToolbar(
                     animator.addUpdateListener {
                         val ratio = it.animatedValue as Float
 
-                        setMargin(all = (margin * ratio).roundToInt())
+                        setMargin(0, (margin * ratio).roundToInt(),0, (margin * ratio).roundToInt())
                         radius = cornerRadius * ratio
                         setCardBackgroundColor(
                             ColorUtilsC.blendARGB(
