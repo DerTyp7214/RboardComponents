@@ -22,7 +22,6 @@
     <de.dertyp7214.rboardcomponents.components.SearchBar
         android:id="@+id/searchToolbar_searchBar"
         android:layout_width="0dp"
-        style="@style/Widget.Material3Expressive.SearchBar"
         android:layout_height="?android:attr/actionBarSize"
         android:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
